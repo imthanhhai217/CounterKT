@@ -63,8 +63,9 @@ class ListCounterFragment() : Fragment() {
         var counter = Counter(
             DataImplement.instance.items.size, System.currentTimeMillis()
         )
-        DataImplement.instance.addOrUpdateItem(counter, false)
-        counterAdapter.updateData(DataImplement.instance.items)
+//        DataImplement.instance.addOrUpdateItem(counter, false)
+//        counterAdapter.updateData(DataImplement.instance.items)
+        navigationController.navigationToFragment(CounterFragment.newInstance(counter))
     }
 
     private fun initView() {
