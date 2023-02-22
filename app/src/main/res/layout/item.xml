@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="counterModel"
+            type="com.jaroid.counter.model.Counter" />
+
+        <variable
+            name="itemClick"
+            type="com.jaroid.counter.adapters.CounterAdapter.ItemClickListener" />
+
+        <import type="com.jaroid.counter.utils.StringUtils" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:onClick="@{(v)->itemClick.onItemClickListener(counterModel) }"
+        android:orientation="horizontal"
+        android:weightSum="2">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center|left"
+            android:hint="value"
+            android:text="@{Integer.toString(counterModel.value)}" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center|left"
+            android:hint="date"
+            android:text="@{StringUtils.convertToDate(counterModel.dateInMillis)}" />
+
+    </LinearLayout>
+</layout>
